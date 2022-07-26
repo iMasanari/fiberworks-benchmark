@@ -15,6 +15,7 @@ const babelOptions: RollupBabelInputPluginOptions = {
 }
 
 export default defineConfig({
+  base: '/fiberworks-benchmark/',
   resolve: {
     alias: {
       '~/': path.join(__dirname, 'src/'),
