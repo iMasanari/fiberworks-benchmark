@@ -1,0 +1,15 @@
+.Item-wrapper {
+  background-color: var(--bg-sub-color);
+}
+
+.Item-id {
+  color: var(--text-sub-color)
+}
+
+.Item-name>mark {
+  font-weight: bold;
+}
+
+.Item-unmatchedName {
+  color: var(--text-sub-color);
+}
