@@ -6,12 +6,6 @@
     "jsxImportSource": "@imasanari/fiberworks",
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "~/jsx-runtime": [
-        "src/jsx-runtime"
-      ]
-    },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [

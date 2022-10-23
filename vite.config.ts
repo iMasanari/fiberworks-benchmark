@@ -1,6 +1,6 @@
 import path from 'path'
 import babel, { RollupBabelInputPluginOptions } from '@rollup/plugin-babel'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
 const babelOptions: RollupBabelInputPluginOptions = {
   extensions: ['.tsx'],
@@ -14,22 +14,23 @@ const babelOptions: RollupBabelInputPluginOptions = {
   sourceMaps: 'inline',
 }
 
-export default defineConfig({
-  base: '/fiberworks-benchmark/',
-  resolve: {
-    alias: {
-      '~/': path.join(__dirname, 'src/'),
+export default defineConfig(({ mode }) => {
+  Object.assign(process.env, loadEnv(mode, process.cwd(), ''))
+
+  const BASE_PATH = process.env.BASE_PATH
+
+  return {
+    base: BASE_PATH,
+    esbuild: {
+      jsx: 'preserve',
     },
-  },
-  esbuild: {
-    jsx: 'preserve',
-  },
-  plugins: [
-    babel(babelOptions),
-  ],
-  worker: {
     plugins: [
       babel(babelOptions),
     ],
-  },
+    worker: {
+      plugins: [
+        babel(babelOptions),
+      ],
+    },
+  }
 })
