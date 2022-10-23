@@ -25,7 +25,7 @@ export const Item = ({ id, searchQuery }: Props) => {
     if (!searchQuery) {
       return {
         nameMarked: (
-          <span className="Item - name">
+          <span className="Item-name">
             {item.en}
           </span>
         ),
